@@ -30,6 +30,9 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
+  name: user-2
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
   name: gotk:team-2:reconciler
 - kind: ServiceAccount
   name: team-2
