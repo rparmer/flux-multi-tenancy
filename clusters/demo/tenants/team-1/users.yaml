@@ -3,7 +3,7 @@ kind: RoleBinding
 metadata:
   labels:
     toolkit.fluxcd.io/tenant: team-1
-  name: team-1-users
+  name: team-1-admins
   namespace: team-1
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -11,5 +11,5 @@ roleRef:
   name: cluster-admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: user-1
+  kind: Group
+  name: team-1
