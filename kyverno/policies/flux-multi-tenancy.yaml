@@ -34,6 +34,6 @@ spec:
         message: "spec.sourceRef.namespace must be the same as metadata.namespace"
         deny:
           conditions:
-            - key: "{{request.object.spec.sourceRef.namespace}}"
+            - key: "{{request.object.spec.sourceRef.namespace || request.object.metadata.namespace}}"
               operator: NotEquals
               value:  "{{request.object.metadata.namespace}}"
