@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  serviceAccountName: kustomize-controller
   path: ./kyverno/install
   prune: true
   wait: true
@@ -21,6 +22,7 @@ spec:
   dependsOn:
     - name: kyverno
   interval: 10m0s
+  serviceAccountName: kustomize-controller
   path: ./kyverno/policies
   prune: true
   sourceRef:
