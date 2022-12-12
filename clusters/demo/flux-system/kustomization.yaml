@@ -20,13 +20,13 @@ patches:
                     memory: 256Mi
     target:
       kind: Deployment
-  # - patch: |
-  #     - op: add
-  #       path: /spec/template/spec/containers/0/args/0
-  #       value: --no-cross-namespace-refs=true
-  #   target:
-  #     kind: Deployment
-  #     name: "(kustomize-controller|helm-controller|notification-controller)"
+  - patch: |
+      - op: add
+        path: /spec/template/spec/containers/0/args/0
+        value: --no-cross-namespace-refs=true
+    target:
+      kind: Deployment
+      name: "(kustomize-controller|helm-controller|notification-controller)"
   # - patch: |
   #     - op: add
   #       path: /spec/template/spec/containers/0/args/0
