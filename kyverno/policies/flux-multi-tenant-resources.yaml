@@ -32,6 +32,7 @@ rules:
   - patch
   - update
   - watch
+  - delete
 ---
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
