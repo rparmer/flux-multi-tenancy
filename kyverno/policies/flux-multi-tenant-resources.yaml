@@ -1,38 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: ClusterRoleBinding
 metadata:
-  labels:
-    app: kyverno
-    app.kubernetes.io/component: kyverno
-    app.kubernetes.io/instance: kyverno-kyverno
-    app.kubernetes.io/name: kyverno
-    app.kubernetes.io/part-of: kyverno
-  name: kyverno-kyverno:flux-multi-tenant-resources
-rules:
-- apiGroups:
-  - '*'
-  resources:
-  - serviceaccounts
-  verbs:
-  - create
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - rbac.authorization.k8s.io
-  resources:
-  - roles
-  - rolebindings
-  verbs:
-  - create
-  - get
-  - list
-  - patch
-  - update
-  - watch
-  - delete
+  name: kyverno:generate-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+- kind: ServiceAccount
+  name: kyverno-kyverno
+  namespace: kyverno
 ---
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
