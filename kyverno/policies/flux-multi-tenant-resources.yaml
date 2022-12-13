@@ -28,6 +28,7 @@ metadata:
       with `toolkit.fluxcd.io/tenant`. Use of this rule may require an additional binding for the
       Kyverno ServiceAccount so it has permissions to properly create the RoleBinding.      
 spec:
+  generateExistingOnPolicyUpdate: true
   rules:
   - name: generate-flux-sa
     match:
